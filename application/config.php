@@ -9,11 +9,6 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 // $Id$
-use think\Log as Log;
-Log::init([
-    'type'  =>  'File',
-    'path'  =>  APP_PATH.'logs/'
-]);
 return [
     'url_route_on' => true,
     'trace' => [
@@ -23,9 +18,20 @@ return [
     'extra_config_list' => ['database', 'route', 'validate'],
     //临时关闭日志写入
 
-
+    'log'   => [
+        // 日志记录方式，支持 file socket
+        'type' => 'File',
+        //日志保存目录
+        'path' => APP_PATH.'logs/',
+        //单个日志文件的大小限制，超过后会自动记录到第二个文件
+        'file_size'     =>2097152,
+        //日志的时间格式，默认是` c `
+        'time_format'   =>'c'
+    ],
 
     'app_debug' => true,
+    'show_error_msg' =>  true,
+
     'default_filter' => ['strip_tags', 'htmlspecialchars'],
 
     // +----------------------------------------------------------------------
