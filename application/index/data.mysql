@@ -28,22 +28,25 @@ CREATE TABLE `cSessionInfo` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='会话管理用户信息';
 
 insert into cAppinfo set appid='wx9d369a56d26bb055',secret='c30bb022a01d7b269db5719f22034767';
-
+crate database voice_app;
+use voice;
 CREATE TABLE `tb_user` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `avatarUrl` varchar(255) NOT NULL DEFAULT '',
   `city` varchar(255) NOT NULL DEFAULT '',
   `country` varchar(255) NOT NULL DEFAULT '',
-  `gender`int(1) NOT NULL DEFAULT '0',
+  `gender` int(1) NOT NULL DEFAULT '0',
   `language` varchar(255) NOT NULL DEFAULT '',
   `nickName` varchar(255) NOT NULL DEFAULT '',
   `openId` varchar(255) NOT NULL DEFAULT '',
   `province` varchar(255) NOT NULL DEFAULT '',
-  `wechat` varchar(255) NOT NULL '',
-  `phone` int(11) NOT NULL '0',
-  `identification` int(1) NOT NULL DEFAULT 0,
+  `wechat` varchar(255) NOT NULL DEFAULT '',
+  `phone` varchar(16) NOT NULL DEFAULT '',
+  `identification` int(1) NOT NULL DEFAULT '0',
   `status` varchar(20) NOT NULL DEFAULT 'OK',
-  `create_time` datetime  NOT NULL DEFAULT CURRENT_TIMESTAMP',
-  `update_time` datetime NULL DEFAULT  ON UPDATE CURRENT_TIMESTAMP,
+  `create_time` varchar(256) NOT NULL DEFAULT '',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后更新时间',
+  `voice_url` varchar(128) NOT NULL DEFAULT '',
+  `img_url` varchar(256) NOT NULL DEFAULT '[]',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='用户' ;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='用户';

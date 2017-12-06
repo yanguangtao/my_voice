@@ -35,7 +35,7 @@ class Conf {
         'port' => 3306,
         'user' => 'root',
         'db'   => 'cAuth',
-        'pass' => '',
+        'pass' => 'yan718844',
         'char' => 'utf8mb4'
     ];
     
