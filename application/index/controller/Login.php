@@ -11,19 +11,19 @@ class Login extends Base
         $result = LoginService::login();
         if ($result['loginState'] === Constants::S_AUTH) {
             log::error($result["userinfo"]);
+
+
+            $info = json_encode($result["userinfo"]["userinfo"]);
+            $model = new User();
+            $user = $model->where("openId", $info["openId"])->find();
+            if(!$user) {
+                $user->allowField(true)->save($info);
+            }
             return json([
                 'code' => 0,
                 'data' => $result['userinfo'],
-            ]);
 
-//            $info = $result["userinfo"];
-//            log::info($info);
-//            $model = new User();
-//            $user = $model->where("openId", $info["openId"])->find();
-//            if(!$user) {
-//                $user->allowField(true)->save($info);
-//            }
-//            return msg($user);
+            ]);
         } else {
             return msg(array(), 1, $result['error']);
         }
