@@ -1,0 +1,661 @@
+---------------------------------------------------------------
+[ 2017-12-04T23:44:42+08:00 ] ::1 ::1 PUT /user
+[ info ] localhost/user [运行时间：0.035002s][吞吐率：28.57req/s] [内存消耗：4,283.02kb] [文件加载：49]
+[ info ] [ LOG ] INIT File
+[ info ] [ LANG ] C:\wamp\www\project\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'index'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'User',
+    2 => 'put',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '328',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36',
+  'cache-control' => 'no-cache',
+  'origin' => 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop',
+  'postman-token' => '9745abea-0f12-2d43-14d7-d21b6f9ad005',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryAFOYbKo5XMrXaPbD',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+  '/user' => '',
+  '------WebKitFormBoundaryAFOYbKo5XMrXaPbD
+Content-Disposition:_form-data;_name' => '&quot;id&quot;
+
+2
+------WebKitFormBoundaryAFOYbKo5XMrXaPbD
+Content-Disposition: form-data; name=&quot;openId&quot;
+
+123
+------WebKitFormBoundaryAFOYbKo5XMrXaPbD
+Content-Disposition: form-data; name=&quot;nickName&quot;
+
+234
+------WebKitFormBoundaryAFOYbKo5XMrXaPbD--
+',
+)
+[ info ] [ RUN ] app\index\controller\User->put[ C:\wamp\www\project\application\index\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ error ] haha
+[ error ] [1]Call to undefined function app\index\model\User()[C:\wamp\www\project\application\index\model\User.php:14]
+---------------------------------------------------------------
+[ 2017-12-04T23:47:03+08:00 ] ::1 ::1 PUT /user
+[ info ] localhost/user [运行时间：0.037002s][吞吐率：27.03req/s] [内存消耗：4,252.85kb] [文件加载：48]
+[ info ] [ LOG ] INIT File
+[ info ] [ LANG ] C:\wamp\www\project\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'index'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'User',
+    2 => 'put',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '328',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36',
+  'cache-control' => 'no-cache',
+  'origin' => 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop',
+  'postman-token' => '4d40cec2-01ae-5cb6-6c16-f0a95182ccd8',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryQcBHQ4je24hcMIVZ',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+  '/user' => '',
+  '------WebKitFormBoundaryQcBHQ4je24hcMIVZ
+Content-Disposition:_form-data;_name' => '&quot;id&quot;
+
+2
+------WebKitFormBoundaryQcBHQ4je24hcMIVZ
+Content-Disposition: form-data; name=&quot;openId&quot;
+
+123
+------WebKitFormBoundaryQcBHQ4je24hcMIVZ
+Content-Disposition: form-data; name=&quot;nickName&quot;
+
+234
+------WebKitFormBoundaryQcBHQ4je24hcMIVZ--
+',
+)
+[ info ] [ RUN ] app\index\controller\User->put[ C:\wamp\www\project\application\index\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ error ] haha
+[ error ] [0]method not exist:think\db\Query->User[C:\wamp\www\project\thinkphp\library\think\db\Query.php:93]
+---------------------------------------------------------------
+[ 2017-12-04T23:48:19+08:00 ] ::1 ::1 PUT /user
+[ info ] localhost/user [运行时间：0.034002s][吞吐率：29.41req/s] [内存消耗：4,260.07kb] [文件加载：49]
+[ info ] [ LOG ] INIT File
+[ info ] [ LANG ] C:\wamp\www\project\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'index'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'User',
+    2 => 'put',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '328',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36',
+  'cache-control' => 'no-cache',
+  'origin' => 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop',
+  'postman-token' => '11cb9733-f485-2ecb-973b-f9c1af7e8be0',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryGBMKlvo5uKeOclK6',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+  '/user' => '',
+  '------WebKitFormBoundaryGBMKlvo5uKeOclK6
+Content-Disposition:_form-data;_name' => '&quot;id&quot;
+
+2
+------WebKitFormBoundaryGBMKlvo5uKeOclK6
+Content-Disposition: form-data; name=&quot;openId&quot;
+
+123
+------WebKitFormBoundaryGBMKlvo5uKeOclK6
+Content-Disposition: form-data; name=&quot;nickName&quot;
+
+234
+------WebKitFormBoundaryGBMKlvo5uKeOclK6--
+',
+)
+[ info ] [ RUN ] app\index\controller\User->put[ C:\wamp\www\project\application\index\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ error ] haha
+[ error ] [8]未定义数组索引: openId[C:\wamp\www\project\application\index\model\User.php:15]
+---------------------------------------------------------------
+[ 2017-12-04T23:49:38+08:00 ] ::1 ::1 PUT /user
+[ info ] localhost/user [运行时间：0.034002s][吞吐率：29.41req/s] [内存消耗：4,259.98kb] [文件加载：49]
+[ info ] [ LOG ] INIT File
+[ info ] [ LANG ] C:\wamp\www\project\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'index'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'User',
+    2 => 'put',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '328',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36',
+  'cache-control' => 'no-cache',
+  'origin' => 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop',
+  'postman-token' => '5a80ebe7-1bd7-7043-fd44-cd3b3fe89326',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryUWYJlZXbBiShXt6N',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+  '/user' => '',
+  '------WebKitFormBoundaryUWYJlZXbBiShXt6N
+Content-Disposition:_form-data;_name' => '&quot;id&quot;
+
+2
+------WebKitFormBoundaryUWYJlZXbBiShXt6N
+Content-Disposition: form-data; name=&quot;openId&quot;
+
+123
+------WebKitFormBoundaryUWYJlZXbBiShXt6N
+Content-Disposition: form-data; name=&quot;nickName&quot;
+
+234
+------WebKitFormBoundaryUWYJlZXbBiShXt6N--
+',
+)
+[ info ] [ RUN ] app\index\controller\User->put[ C:\wamp\www\project\application\index\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ error ] haha
+[ error ] [8]未定义数组索引: openId[C:\wamp\www\project\application\index\model\User.php:15]
+---------------------------------------------------------------
+[ 2017-12-04T23:50:39+08:00 ] ::1 ::1 PUT /user
+[ info ] localhost/user [运行时间：0.036002s][吞吐率：27.78req/s] [内存消耗：4,259.89kb] [文件加载：49]
+[ info ] [ LOG ] INIT File
+[ info ] [ LANG ] C:\wamp\www\project\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'index'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'User',
+    2 => 'put',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '328',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36',
+  'cache-control' => 'no-cache',
+  'origin' => 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop',
+  'postman-token' => 'ac45120a-258b-c867-116b-3988977be163',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryMgMBkum1yK9ulWcA',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+  '/user' => '',
+  '------WebKitFormBoundaryMgMBkum1yK9ulWcA
+Content-Disposition:_form-data;_name' => '&quot;id&quot;
+
+2
+------WebKitFormBoundaryMgMBkum1yK9ulWcA
+Content-Disposition: form-data; name=&quot;openId&quot;
+
+123
+------WebKitFormBoundaryMgMBkum1yK9ulWcA
+Content-Disposition: form-data; name=&quot;nickName&quot;
+
+234
+------WebKitFormBoundaryMgMBkum1yK9ulWcA--
+',
+)
+[ info ] [ RUN ] app\index\controller\User->put[ C:\wamp\www\project\application\index\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ error ] haha
+[ error ] [8]未定义数组索引: id[C:\wamp\www\project\application\index\model\User.php:15]
+---------------------------------------------------------------
+[ 2017-12-04T23:51:16+08:00 ] ::1 ::1 PUT /user
+[ info ] localhost/user [运行时间：0.033002s][吞吐率：30.30req/s] [内存消耗：4,260.03kb] [文件加载：49]
+[ info ] [ LOG ] INIT File
+[ info ] [ LANG ] C:\wamp\www\project\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'index'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'User',
+    2 => 'put',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '328',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36',
+  'cache-control' => 'no-cache',
+  'origin' => 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop',
+  'postman-token' => 'e699c34d-9949-d529-3e8e-4d4ffe62d097',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundarybJABCNEIDr5qGqBg',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+  '/user' => '',
+  '------WebKitFormBoundarybJABCNEIDr5qGqBg
+Content-Disposition:_form-data;_name' => '&quot;id&quot;
+
+2
+------WebKitFormBoundarybJABCNEIDr5qGqBg
+Content-Disposition: form-data; name=&quot;openId&quot;
+
+123
+------WebKitFormBoundarybJABCNEIDr5qGqBg
+Content-Disposition: form-data; name=&quot;nickName&quot;
+
+234
+------WebKitFormBoundarybJABCNEIDr5qGqBg--
+',
+)
+[ info ] [ RUN ] app\index\controller\User->put[ C:\wamp\www\project\application\index\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ error ] haha
+[ error ] [8]未定义数组索引: id[C:\wamp\www\project\application\index\model\User.php:15]
+---------------------------------------------------------------
+[ 2017-12-04T23:53:20+08:00 ] ::1 ::1 PUT /user
+[ info ] localhost/user [运行时间：0.035002s][吞吐率：28.57req/s] [内存消耗：4,268.36kb] [文件加载：49]
+[ info ] [ LOG ] INIT File
+[ info ] [ LANG ] C:\wamp\www\project\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'index'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'User',
+    2 => 'put',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '328',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36',
+  'cache-control' => 'no-cache',
+  'origin' => 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop',
+  'postman-token' => 'ca6785a9-195e-9727-5a8c-425901026d29',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryRVQZh8J5r3fKI6sP',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+  '/user' => '',
+  '------WebKitFormBoundaryRVQZh8J5r3fKI6sP
+Content-Disposition:_form-data;_name' => '&quot;id&quot;
+
+2
+------WebKitFormBoundaryRVQZh8J5r3fKI6sP
+Content-Disposition: form-data; name=&quot;openId&quot;
+
+123
+------WebKitFormBoundaryRVQZh8J5r3fKI6sP
+Content-Disposition: form-data; name=&quot;nickName&quot;
+
+234
+------WebKitFormBoundaryRVQZh8J5r3fKI6sP--
+',
+)
+[ info ] [ RUN ] app\index\controller\User->put[ C:\wamp\www\project\application\index\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ error ] array (
+  '/user' => '',
+  '------WebKitFormBoundaryRVQZh8J5r3fKI6sP
+Content-Disposition:_form-data;_name' => '&quot;id&quot;
+
+2
+------WebKitFormBoundaryRVQZh8J5r3fKI6sP
+Content-Disposition: form-data; name=&quot;openId&quot;
+
+123
+------WebKitFormBoundaryRVQZh8J5r3fKI6sP
+Content-Disposition: form-data; name=&quot;nickName&quot;
+
+234
+------WebKitFormBoundaryRVQZh8J5r3fKI6sP--
+',
+)
+[ error ] [8]未定义数组索引: id[C:\wamp\www\project\application\index\model\User.php:15]
+---------------------------------------------------------------
+[ 2017-12-04T23:54:47+08:00 ] ::1 ::1 PUT /user
+[ info ] localhost/user [运行时间：0.037002s][吞吐率：27.03req/s] [内存消耗：4,268.44kb] [文件加载：49]
+[ info ] [ LOG ] INIT File
+[ info ] [ LANG ] C:\wamp\www\project\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'index'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'User',
+    2 => 'put',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '328',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36',
+  'cache-control' => 'no-cache',
+  'origin' => 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop',
+  'postman-token' => '95bb27dd-e90c-0919-7a2e-3c8310359fb9',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryZFExBsZGR4m0Fljy',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+  '/user' => '',
+  '------WebKitFormBoundaryZFExBsZGR4m0Fljy
+Content-Disposition:_form-data;_name' => '&quot;id&quot;
+
+2
+------WebKitFormBoundaryZFExBsZGR4m0Fljy
+Content-Disposition: form-data; name=&quot;openId&quot;
+
+123
+------WebKitFormBoundaryZFExBsZGR4m0Fljy
+Content-Disposition: form-data; name=&quot;nickName&quot;
+
+234
+------WebKitFormBoundaryZFExBsZGR4m0Fljy--
+',
+)
+[ info ] [ RUN ] app\index\controller\User->put[ C:\wamp\www\project\application\index\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ error ] array (
+  '/user' => '',
+  '------WebKitFormBoundaryZFExBsZGR4m0Fljy
+Content-Disposition:_form-data;_name' => '&quot;id&quot;
+
+2
+------WebKitFormBoundaryZFExBsZGR4m0Fljy
+Content-Disposition: form-data; name=&quot;openId&quot;
+
+123
+------WebKitFormBoundaryZFExBsZGR4m0Fljy
+Content-Disposition: form-data; name=&quot;nickName&quot;
+
+234
+------WebKitFormBoundaryZFExBsZGR4m0Fljy--
+',
+)
+[ error ] [8]未定义数组索引: id[C:\wamp\www\project\application\index\model\User.php:15]
+---------------------------------------------------------------
+[ 2017-12-04T23:57:57+08:00 ] ::1 ::1 PUT /user
+[ info ] localhost/user [运行时间：0.034002s][吞吐率：29.41req/s] [内存消耗：4,270.14kb] [文件加载：49]
+[ info ] [ LOG ] INIT File
+[ info ] [ LANG ] C:\wamp\www\project\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'index'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'User',
+    2 => 'put',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '328',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36',
+  'cache-control' => 'no-cache',
+  'origin' => 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop',
+  'postman-token' => 'f7a19394-768d-f6c7-9844-437f65e6518c',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryjARvF0t49x9jQ62j',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+  '/user' => '',
+  '------WebKitFormBoundaryjARvF0t49x9jQ62j
+Content-Disposition:_form-data;_name' => '&quot;id&quot;
+
+2
+------WebKitFormBoundaryjARvF0t49x9jQ62j
+Content-Disposition: form-data; name=&quot;openId&quot;
+
+123
+------WebKitFormBoundaryjARvF0t49x9jQ62j
+Content-Disposition: form-data; name=&quot;nickName&quot;
+
+234
+------WebKitFormBoundaryjARvF0t49x9jQ62j--
+',
+)
+[ info ] [ RUN ] app\index\controller\User->put[ C:\wamp\www\project\application\index\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ error ] array (
+  '/user' => '',
+  '------WebKitFormBoundaryjARvF0t49x9jQ62j
+Content-Disposition:_form-data;_name' => '&quot;id&quot;
+
+2
+------WebKitFormBoundaryjARvF0t49x9jQ62j
+Content-Disposition: form-data; name=&quot;openId&quot;
+
+123
+------WebKitFormBoundaryjARvF0t49x9jQ62j
+Content-Disposition: form-data; name=&quot;nickName&quot;
+
+234
+------WebKitFormBoundaryjARvF0t49x9jQ62j--
+',
+)
+[ error ] NULL
+[ error ] [8]未定义数组索引: id[C:\wamp\www\project\application\index\model\User.php:15]
+---------------------------------------------------------------
+[ 2017-12-04T23:58:30+08:00 ] ::1 ::1 GET /user
+[ info ] localhost/user [运行时间：0.022001s][吞吐率：45.45req/s] [内存消耗：2,393.95kb] [文件加载：41]
+[ info ] [ LOG ] INIT File
+[ info ] [ LANG ] C:\wamp\www\project\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'index'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'user',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'no-cache',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36',
+  'postman-token' => '9c9bb576-223a-ce99-0191-e6e88de2671a',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+  '/user' => '',
+)
+[ info ] [ RUN ] app\index\controller\User->index[ C:\wamp\www\project\application\index\controller\User.php ]
+---------------------------------------------------------------
+[ 2017-12-04T23:58:36+08:00 ] ::1 ::1 PUT /user
+[ info ] localhost/user [运行时间：0.050003s][吞吐率：20.00req/s] [内存消耗：4,270.14kb] [文件加载：49]
+[ info ] [ LOG ] INIT File
+[ info ] [ LANG ] C:\wamp\www\project\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'index'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'User',
+    2 => 'put',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '328',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36',
+  'cache-control' => 'no-cache',
+  'origin' => 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop',
+  'postman-token' => '8b311694-98b3-e2e7-58d3-d2d746f654b9',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundary0SOIrfByBiVulvyS',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+  '/user' => '',
+  '------WebKitFormBoundary0SOIrfByBiVulvyS
+Content-Disposition:_form-data;_name' => '&quot;id&quot;
+
+2
+------WebKitFormBoundary0SOIrfByBiVulvyS
+Content-Disposition: form-data; name=&quot;openId&quot;
+
+123
+------WebKitFormBoundary0SOIrfByBiVulvyS
+Content-Disposition: form-data; name=&quot;nickName&quot;
+
+234
+------WebKitFormBoundary0SOIrfByBiVulvyS--
+',
+)
+[ info ] [ RUN ] app\index\controller\User->put[ C:\wamp\www\project\application\index\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ error ] array (
+  '/user' => '',
+  '------WebKitFormBoundary0SOIrfByBiVulvyS
+Content-Disposition:_form-data;_name' => '&quot;id&quot;
+
+2
+------WebKitFormBoundary0SOIrfByBiVulvyS
+Content-Disposition: form-data; name=&quot;openId&quot;
+
+123
+------WebKitFormBoundary0SOIrfByBiVulvyS
+Content-Disposition: form-data; name=&quot;nickName&quot;
+
+234
+------WebKitFormBoundary0SOIrfByBiVulvyS--
+',
+)
+[ error ] NULL
+[ error ] [8]未定义数组索引: id[C:\wamp\www\project\application\index\model\User.php:15]
+---------------------------------------------------------------
+[ 2017-12-04T23:59:18+08:00 ] ::1 ::1 PUT /user
+[ info ] localhost/user [运行时间：0.033002s][吞吐率：30.30req/s] [内存消耗：4,269.83kb] [文件加载：49]
+[ info ] [ LOG ] INIT File
+[ info ] [ LANG ] C:\wamp\www\project\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'index'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'User',
+    2 => 'put',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '328',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36',
+  'cache-control' => 'no-cache',
+  'origin' => 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop',
+  'postman-token' => '4cb5f0b3-562b-a353-b113-c839f51bf253',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryzHDKQoAKJJNYvdW2',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+  '/user' => '',
+  '------WebKitFormBoundaryzHDKQoAKJJNYvdW2
+Content-Disposition:_form-data;_name' => '&quot;id&quot;
+
+2
+------WebKitFormBoundaryzHDKQoAKJJNYvdW2
+Content-Disposition: form-data; name=&quot;openId&quot;
+
+123
+------WebKitFormBoundaryzHDKQoAKJJNYvdW2
+Content-Disposition: form-data; name=&quot;nickName&quot;
+
+234
+------WebKitFormBoundaryzHDKQoAKJJNYvdW2--
+',
+)
+[ info ] [ RUN ] app\index\controller\User->put[ C:\wamp\www\project\application\index\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ error ] array (
+  '------WebKitFormBoundaryzHDKQoAKJJNYvdW2
+Content-Disposition:_form-data;_name' => '&quot;id&quot;
+
+2
+------WebKitFormBoundaryzHDKQoAKJJNYvdW2
+Content-Disposition: form-data; name=&quot;openId&quot;
+
+123
+------WebKitFormBoundaryzHDKQoAKJJNYvdW2
+Content-Disposition: form-data; name=&quot;nickName&quot;
+
+234
+------WebKitFormBoundaryzHDKQoAKJJNYvdW2--
+',
+)
+[ error ] NULL
+[ error ] [8]未定义数组索引: id[C:\wamp\www\project\application\index\model\User.php:15]
