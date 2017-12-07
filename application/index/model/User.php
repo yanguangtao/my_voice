@@ -9,7 +9,8 @@ namespace app\index\model;
 use think\Model;
 use think\Log as log;
 
-class User extends Model{
+
+class User extends BaseModel{
     protected $pk = 'id';
     function updateOrInsert($data){
         $model =model('User');

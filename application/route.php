@@ -11,6 +11,8 @@
 use think\Route;
 Route::get('login','Login/index');
 Route::get('user/:id', 'User/getUser');
+Route::get('user', 'User/getUsers');
+
 Route::post('user', 'User/put');
 
 //return [

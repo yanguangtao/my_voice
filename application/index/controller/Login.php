@@ -10,19 +10,17 @@ class Login extends Base
     public function index(){
         $result = LoginService::login();
         if ($result['loginState'] === Constants::S_AUTH) {
-            log::error($result["userinfo"]);
-
-
-            $info = json_encode($result["userinfo"]["userinfo"]);
-            $model = new User();
+            log::info($result["userinfo"]);
+            $info = objToArray($result["userinfo"]["userinfo"]);
+            $info["create_time"] = date('Y-m-d H:i:s');
+            $model = new User($info);
             $user = $model->where("openId", $info["openId"])->find();
             if(!$user) {
-                $user->allowField(true)->save($info);
+                $model->allowField(true)->save();
             }
             return json([
                 'code' => 0,
                 'data' => $result['userinfo'],
-
             ]);
         } else {
             return msg(array(), 1, $result['error']);

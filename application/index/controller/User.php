@@ -24,16 +24,30 @@ class User extends Base
              ]);
          }
     }
-    public function get(){
+
+    /**获取自己资料
+     * @return \think\response\Json
+     */
+    public function getInfo(){
         $user = model('User');
         $result = LoginService::check();
-        $data = $user->where("openId", $result["userinfo"]["openId"])->find();
-        if ($data){
-            return msg($data);
+        if($result){
+            $data = $user->where("openId", $result["userinfo"]["openId"])->find();
+            if ($data){
+                return msg($data);
+            }else{
+                return msg(new \ArrayObject(), 1, "用户不存在");
+            }
         }else{
-            return msg(new \ArrayObject(), 1, "用户不存在");
+            return msg($result['error']);
         }
+
     }
+
+    /**查看个人资料
+     * @param $id
+     * @return \think\response\Json
+     */
     public function getUser($id){
         $user = model('User');
         $data = $user->where("id", $id)->find();
@@ -43,6 +57,20 @@ class User extends Base
             return msg(array(), 1, "用户不存在");
         }
     }
+
+    /**获取用户列表
+     * @return \think\response\Json
+     */
+    public function getUsers(){
+        $param = Request::instance()->param();
+        $page = isset($param["page"]) ? $param["page"] : 1;
+        $limit = isset($param["limit"]) ? $param["limit"] : 10;
+        $model = new UserModel();
+        $data = $model->getByWhere('', $page, $limit);
+        $data["list"] = objToArray($data["list"]);
+        return msg($data);
+    }
+
     public function put(){
         $param = Request::instance()->param();
         $user = new UserModel();

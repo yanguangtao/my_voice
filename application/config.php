@@ -56,6 +56,6 @@ return [
     //备份数据地址
     'back_path' => APP_PATH .'../back/',
     'datetime_format' => false,
-    'timestamp' => true
+    'timestamp' => true, //mysql timestamp解析冲突
 
 ];
