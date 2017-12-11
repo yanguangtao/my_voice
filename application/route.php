@@ -9,19 +9,19 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 use think\Route;
-Route::get('login','Login/index');
-Route::get('user/:id', 'User/getUser');
-Route::get('user', 'User/getUsers');
+Route::get([
+    'login'=> 'Login/index',
+    'user' => 'User/getUsers',
+    'user/:id$' => ['User/getUser',[],['id'=>'\d+']],
+    'order' => 'Order/get',
+    'order/:order_sn' => ['Order/getOrder',[],['order_sn'=>'\d+']],
+]);
+Route::post([
+   'order' => 'Order/post',
+    'order/test' => 'Order/unifiedOrder'
+]);
+Route::put([
+    'user' => 'User/put',
+    'order/:order_sn' => ['Order/action',[],['order_sn'=>'\d+']],
+]);
 
-Route::post('user', 'User/put');
-
-//return [
-//    '__pattern__' => [
-//        'name' => '\w+',
-//    ],
-//    '[hello]'     => [
-//        ':id'   => ['index/hello', ['method' => 'get'], ['id' => '\d+']],
-//        ':name' => ['index/hello', ['method' => 'post']],
-//    ],
-//
-//];

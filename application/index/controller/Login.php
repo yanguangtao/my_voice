@@ -23,7 +23,7 @@ class Login extends Base
                 'data' => $result['userinfo'],
             ]);
         } else {
-            return msg(array(), 1, $result['error']);
+            return msg("", 1, $result['error']);
         }
     }
 }

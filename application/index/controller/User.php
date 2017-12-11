@@ -54,7 +54,7 @@ class User extends Base
         if ($data){
             return msg($data);
         }else{
-            return msg(array(), 1, "用户不存在");
+            return msg("", 1, "用户不存在");
         }
     }
 
@@ -75,6 +75,6 @@ class User extends Base
         $param = Request::instance()->param();
         $user = new UserModel();
         $result = $user->updateOrInsert($param);
-        return $result ? msg() : msg(array(), 1, "更新失败");
+        return $result ? msg() : msg("", 1, "更新失败");
     }
 }
