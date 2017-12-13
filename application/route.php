@@ -10,20 +10,20 @@
 // +----------------------------------------------------------------------
 use think\Route;
 Route::get([
-    'login'=> 'Login/index',
-    'user' => 'User/getUsers',
-    'user/:id$' => ['User/getUser',[],['id'=>'\d+']],
-    'order' => 'Order/get',
+    'login$'=> 'Login/index',
+    'user$' => 'User/getUsers',
+    'user/:id' => 'User/getUser',
+    'order$' => 'Order/get',
     'order/:order_sn' => ['Order/getOrder',[],['order_sn'=>'\d+']],
-    'follow' => 'Follow/get'
+    'follow$' => 'Follow/get'
 ]);
 Route::post([
-    'order' => 'Order/post',
+    'order$' => 'Order/post',
     'order/test' => 'Order/unifiedOrder',
-    'follow' => 'Follow/action'
+    'follow$' => 'Follow/action'
 ]);
 Route::put([
-    'user' => 'User/put',
+    'user$' => 'User/put',
     'order/:order_sn' => ['Order/action',[],['order_sn'=>'\d+']],
 ]);
 
