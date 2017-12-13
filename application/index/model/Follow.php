@@ -10,6 +10,7 @@ namespace app\index\model;
 
 
 use app\index\RedisTool;
+require_once __DIR__."/../RedisKeys.php";
 
 class Follow extends BaseModel{
     protected $pk = 'id';
