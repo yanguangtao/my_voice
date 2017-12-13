@@ -4,6 +4,7 @@ namespace app\index\controller;
 use app\index\model\User;
 use QCloud_WeApp_SDK\Auth\LoginService as LoginService;
 use QCloud_WeApp_SDK\Constants as Constants;
+use app\index\RedisTool as RedisTool;
 use think\Log as log;
 class Login extends Base
 {

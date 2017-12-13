@@ -12,6 +12,7 @@ use think\Log as log;
 
 class User extends BaseModel{
     protected $pk = 'id';
+    public  $test = "";
     function updateOrInsert($data){
         $model =model('User');
         $user = $model->where("id", $data["openId"]);

@@ -53,4 +53,15 @@ CREATE TABLE `tb_order` (
   KEY `consignee_id` (`consignee_id`) USING BTREE,
   KEY `service_id` (`service_id`) USING BTREE,
   KEY `bonus_id` (`bonus_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='订单'
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='订单';
+CREATE TABLE `tb_follow` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(255) NOT NULL DEFAULT '',
+  `follow_id` int(10) NOT NULL DEFAULT '0',
+  `status` enum('OK', 'DELETED') not null default 'OK',
+  `create_time` varchar(64) NOT NULL DEFAULT '' COMMENT '开始时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后更新时间',
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`) USING BTREE,
+  KEY `follow_id` (`follow_id`) USING BTREE,
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='关注';

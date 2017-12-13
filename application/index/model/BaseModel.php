@@ -17,9 +17,9 @@ class BaseModel extends Model{
      * @param $limit
      * @return list
      */
-    public function getByWhere($where, $page, $limit){
+    public function getByWhere($where, $page=1, $limit=10){
         $list= $this->where($where)->page($page, $limit)->order('id desc')->select();
-        $total = $this->getAll($where);
+        $total = $this->getCount($where);
         return array("list"=>$list, "total"=>$total);
     }
 
@@ -28,7 +28,7 @@ class BaseModel extends Model{
      * @param $where
      * @return total
      */
-    public function getAll($where)
+    public function getCount($where)
     {
         return $this->where($where)->count();
     }
@@ -42,6 +42,14 @@ class BaseModel extends Model{
     public function getOne($id)
     {
         return $this->where('id', $id)->find();
+    }
+
+    function getOneByWhere($where){
+        return $this->where($where)->find();
+    }
+
+    public function deleteByPk($id){
+        return $this->get($id)->delete();
     }
 
 

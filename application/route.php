@@ -15,10 +15,12 @@ Route::get([
     'user/:id$' => ['User/getUser',[],['id'=>'\d+']],
     'order' => 'Order/get',
     'order/:order_sn' => ['Order/getOrder',[],['order_sn'=>'\d+']],
+    'follow' => 'Follow/get'
 ]);
 Route::post([
-   'order' => 'Order/post',
-    'order/test' => 'Order/unifiedOrder'
+    'order' => 'Order/post',
+    'order/test' => 'Order/unifiedOrder',
+    'follow' => 'Follow/action'
 ]);
 Route::put([
     'user' => 'User/put',
