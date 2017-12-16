@@ -39,4 +39,15 @@ class Follow extends BaseModel{
         $redis->set($key, $count);
         return $count;
     }
+
+    /**
+     * 是否已关注
+     * @param $user_id
+     * @param $follow_id
+     * @return bool
+     */
+    function isFollow($user_id, $follow_id){
+        $result = $this->where(array("user_id"=>$user_id, "follow_id"=>$follow_id))->find();
+        return $result ? true : false;
+    }
 }

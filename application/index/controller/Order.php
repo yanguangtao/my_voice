@@ -121,10 +121,7 @@ class Order extends Base{
     function generateData($data){
         $user = model('User');
         $result = $user->where('id', $data['service_id'])->find();
-        log::error($result);
         $product_price = $result->price;
-        log::error($product_price);
-        log::error($data["order_amount"]);
         $order_amount = $product_price * $data['product_total'];
         if(abs($order_amount-$data['order_amount']) > 0.001){
             throw new Exception("订单金额不正确");

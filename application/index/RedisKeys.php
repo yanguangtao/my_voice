@@ -10,6 +10,12 @@
  * @param $user_id
  * @return string
  */
+function getUserIdKeyByOpenId($openId){
+    return "user.openId.{$openId}";
+}
+function getUserKey($user_id){
+    return "user.{$user_id}";
+}
 function getFollowCountKey($user_id){
     return "user.{$user_id}.follow";
 }

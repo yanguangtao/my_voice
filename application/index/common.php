@@ -36,6 +36,11 @@ function getOrderSN() {
     return date('YmdHis') . substr('000000000000000'.$a, -2);
 }
 
+function isFollow($user_id, $follow_id){
+    $model = new \app\index\model\Follow();
+    return $model->isFollow($user_id, $follow_id);
+}
+
 
 
 

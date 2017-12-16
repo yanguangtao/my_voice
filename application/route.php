@@ -12,12 +12,14 @@ use think\Route;
 Route::get([
     'login$'=> 'Login/index',
     'user$' => 'User/getUsers',
-    'user/:id' => 'User/getUser',
+    'user/:id' => ['User/getUser',[],['order_sn'=>'\d+']],
+    'user/voice_type$' => 'User/getVoiceType',
     'order$' => 'Order/get',
     'order/:order_sn' => ['Order/getOrder',[],['order_sn'=>'\d+']],
     'follow$' => 'Follow/get'
 ]);
 Route::post([
+    'user/auth$' => 'User/auth',
     'order$' => 'Order/post',
     'order/test' => 'Order/unifiedOrder',
     'follow$' => 'Follow/action'

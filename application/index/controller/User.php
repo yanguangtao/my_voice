@@ -53,10 +53,12 @@ class User extends Base
      */
     public function getUser($id){
         $user = model('User');
+        $user_id = $user->getUserId();
         $data = $user->where("id", $id)->find();
         if ($data){
             $data = objToArray($data);
             $this->getUserOtherInfo($data);
+            $data["is_follow"] = isFollow($user_id, $id);
             return msg($data);
         }else{
             return msg("", 1, "用户不存在");
@@ -90,7 +92,35 @@ class User extends Base
     public function put(){
         $param = Request::instance()->param();
         $user = new UserModel();
+        $param["user_id"] = $user->getUserId();
+        log::error($param);
         $result = $user->updateOrInsert($param);
-        return $result ? msg() : msg("", 1, "更新失败");
+        return $result ? msg("") : msg("", 1, "更新失败");
+    }
+    public function auth(){
+        $user_id = 2;
+        $param =Request::instance()->param();
+        if (!isset($param["voice_url"]) or !isset($param["voice_type"])){
+            return msg("", 1, "参数错误");
+        }
+        $model = new UserModel();
+        $user = $model->where("id", $user_id)->find();
+        if($user->auth_status == 1){
+            return msg("", 1, "正在认证中");
+        }
+        $user->auth_status = 1;
+        $user->voice_url = $param["voice_url"];
+        $user->voice_type = $param["voice_type"];
+        $user->save();
+        return msg("");
+    }
+    public function getVoiceType(){
+        $param = Request::instance()->param();
+        if(isset($param["gender"])){
+           $where["gender"] = $param["gender"];
+        }
+        $model = model('VoiceType');
+        $voice_type = $model->where($where)->select();
+        return msg($voice_type);
     }
 }
