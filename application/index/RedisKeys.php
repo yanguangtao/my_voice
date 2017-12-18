@@ -16,6 +16,9 @@ function getUserIdKeyByOpenId($openId){
 function getUserKey($user_id){
     return "user.{$user_id}";
 }
+function getUserOrder($user_id){
+    return "user.{$user_id}.order";
+}
 function getFollowCountKey($user_id){
     return "user.{$user_id}.follow";
 }

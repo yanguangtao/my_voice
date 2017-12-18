@@ -15,7 +15,7 @@ use think\Log as log;
 use \app\index\model\Follow as FollowModel;
 use think\session\driver\Redis;
 
-class Follow{
+class Follow extends Base{
     public function get(){
         $user_id = 2;
         $param = Request::instance()->param();

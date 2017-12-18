@@ -24,4 +24,5 @@ class RedisTool extends Redis{
         ];
         parent::__construct($config);
     }
+    
 }

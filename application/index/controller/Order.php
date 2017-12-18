@@ -8,6 +8,7 @@
 namespace app\index\controller;
 require_once __DIR__."/../lib/WxPay.Data.php";
 require_once __DIR__."/../lib/WxPay.Api.php";
+use app\index\model\Comment;
 use QCloud_WeApp_SDK\Constants;
 use think\Db;
 use think\Exception;
@@ -70,6 +71,13 @@ class Order extends Base{
         if(empty($result)){
             return msg("", 1, "订单不存在");
         }
+        $result = objToArray($result);
+        $comment = new Comment();
+        $comment = $comment->where("order_id", $result["id"])->find();
+        $comment = objToArray($comment);
+        $result["star"] = $comment["star"];
+        $result["comment_id"] = $comment["id"];
+        $result["content"] = $comment["content"];
         return msg($result);
     }
     public function action($order_sn){

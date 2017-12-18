@@ -21,11 +21,12 @@ Route::get([
 Route::post([
     'user/auth$' => 'User/auth',
     'order$' => 'Order/post',
-    'order/test' => 'Order/unifiedOrder',
+    'order/test$' => 'Order/unifiedOrder',
+    'order/:order_id/comment$' => 'Comment/post',
     'follow$' => 'Follow/action'
 ]);
 Route::put([
     'user$' => 'User/put',
-    'order/:order_sn' => ['Order/action',[],['order_sn'=>'\d+']],
+    'order/:order_sn$' => ['Order/action',[],['order_sn'=>'\d+']],
 ]);
 

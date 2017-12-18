@@ -2,6 +2,7 @@
 
 namespace app\index\controller;
 use app\index\model\Follow;
+use app\index\model\Order;
 use think\Request;
 use \app\index\model\User as UserModel;
 use QCloud_WeApp_SDK\Auth\LoginService as LoginService;
@@ -82,11 +83,13 @@ class User extends Base
     }
     function getUserOtherInfo(&$item){
         $follow = new Follow();
+        $order = new Order();
         $item["tag"] = "魅力妖娆";
         $item["follow"] = $follow->getFollowCount($item["id"]);
         $item["followed"] = $follow->getFollowedCount($item["id"]);
-        $item["star"] = 4.9;
-        $item["order_num"] = 1000;
+        $order = $order->getUserStar($item["id"]);
+        $item["star"] = $order["star"];
+        $item["order_num"] = $order["order_num"];
     }
 
     public function put(){
