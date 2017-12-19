@@ -74,7 +74,12 @@ class User extends Base
         $page = isset($param["page"]) ? $param["page"] : 1;
         $limit = isset($param["limit"]) ? $param["limit"] : 10;
         $model = new UserModel();
-        $data = $model->getByWhere('', $page, $limit);
+        $service_type_list = ["sleep", "joke", "ape"];
+        $where = "";
+        if(isset($param["service_type"]) && in_array($param["service_type"], $service_type_list)){
+            $where = "service_type='' or find_in_set('{$param["service_type"]}', service_type)";
+        }
+        $data = $model->getByWhere($where, $page, $limit);
         $data["list"] = objToArray($data["list"]);
         foreach ($data["list"] as &$item){
            $this->getUserOtherInfo($item);
@@ -112,7 +117,7 @@ class User extends Base
             return msg("", 1, "正在认证中");
         }
         $param["auth_status"] = 1;
-        $allow_field = ["img_url", "wechat", "phone", "avatarUrl", "price",
+        $allow_field = ["img_url", "wechat", "phone", "avatarUrl", "price", "service_type",
             "time_start","time_end", "voice_url", "voice_type","auth_status"];
         $model->allowField($allow_field)->save($param, ["id"=>$user_id]);
         return msg("");

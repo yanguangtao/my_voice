@@ -19,7 +19,8 @@ class User extends BaseModel{
         $model =model('User');
         $user = $model->where("id", $data["user_id"])->find();
         if($user){
-            $allow_field = ["nickName","avatarUrl", "img_url", "wechat", "phone", "city", "price","time_start","time_end"];
+            $allow_field = ["nickName","avatarUrl", "img_url", "wechat", "phone", "city",
+                "price","time_start","time_end", "service_type"];
             $model->allowField($allow_field)->save($data, ["id"=>$data["user_id"]]);
             return $user;
         }else{
