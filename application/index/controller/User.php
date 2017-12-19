@@ -101,7 +101,7 @@ class User extends Base
         return $result ? msg("") : msg("", 1, "更新失败");
     }
     public function auth(){
-        $user_id = 2;
+        $user_id = 3;
         $param =Request::instance()->param();
         if (!isset($param["voice_url"]) or !isset($param["voice_type"])){
             return msg("", 1, "参数错误");
@@ -111,10 +111,10 @@ class User extends Base
         if($user->auth_status == 1){
             return msg("", 1, "正在认证中");
         }
-        $user->auth_status = 1;
-        $user->voice_url = $param["voice_url"];
-        $user->voice_type = $param["voice_type"];
-        $user->save();
+        $param["auth_status"] = 1;
+        $allow_field = ["img_url", "wechat", "phone", "avatarUrl", "price",
+            "time_start","time_end", "voice_url", "voice_type","auth_status"];
+        $model->allowField($allow_field)->save($param, ["id"=>$user_id]);
         return msg("");
     }
     public function getVoiceType(){

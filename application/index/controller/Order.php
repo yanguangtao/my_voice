@@ -9,6 +9,7 @@ namespace app\index\controller;
 require_once __DIR__."/../lib/WxPay.Data.php";
 require_once __DIR__."/../lib/WxPay.Api.php";
 use app\index\model\Comment;
+use app\index\model\User;
 use QCloud_WeApp_SDK\Constants;
 use think\Db;
 use think\Exception;
@@ -60,25 +61,45 @@ class Order extends Base{
 //            return msg('', 1, $check["error"]);
 //        }
         $param = Request::instance()->param();
-//        $user_id = 2;
+        $userModel = new User();
+        $user_id = $userModel->getUserId();
+        $page = isset($param["page"]) ? $param["page"] : 1;
+        $limit = isset($param["limit"]) ? $param["limit"] : 10;
         $model = new OrderModel($param);
-        $result = $model->select();
+        $where = "service_id={$user_id} or consignee_id={$user_id}";
+        $result = $model->getByWhere($where, $page, $limit);
+        $result = objToArray($result);
+        foreach ($result["list"] as &$item){
+            log::error($item);
+            $this->getOrderUserInfo($user_id, $userModel, $item);
+        }
         return msg($result);
     }
     public function getOrder($order_sn){
+        $userModel = new User();
+        $user_id = $userModel->getUserId();
         $model = new OrderModel();
         $result = $model->where('order_sn', $order_sn)->find();
         if(empty($result)){
             return msg("", 1, "订单不存在");
         }
         $result = objToArray($result);
+
         $comment = new Comment();
         $comment = $comment->where("order_id", $result["id"])->find();
         $comment = objToArray($comment);
         $result["star"] = $comment["star"];
         $result["comment_id"] = $comment["id"];
         $result["content"] = $comment["content"];
+        $this->getOrderUserInfo($user_id, $userModel, $result);
         return msg($result);
+    }
+
+    function getOrderUserInfo($user_id, $userModel, &$item){
+        $other_id = intval($user_id) == $item["service_id"] ? $item["consignee_id"] : $user_id;
+        $user = $userModel->getUserSampleInfo($other_id);
+        $item["nickName"] = $user["nickName"];
+        $item["avatarUrl"] = $user['avatarUrl'];
     }
     public function action($order_sn){
         $param = Request::instance()->param();

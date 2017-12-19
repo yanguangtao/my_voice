@@ -19,7 +19,7 @@ class User extends BaseModel{
         $model =model('User');
         $user = $model->where("id", $data["user_id"])->find();
         if($user){
-            $allow_field = ["nickName", "img_url", "wechat", "phone", "city", "price","time_start","time_end"];
+            $allow_field = ["nickName","avatarUrl", "img_url", "wechat", "phone", "city", "price","time_start","time_end"];
             $model->allowField($allow_field)->save($data, ["id"=>$data["user_id"]]);
             return $user;
         }else{
@@ -43,6 +43,11 @@ class User extends BaseModel{
             $redis->set($key, $user_id);
         }
         return $user_id;
+    }
+
+    function getUserSampleInfo($user_id){
+        $data = $this->where("id", $user_id)->find();
+        return objToArray($data);
     }
     
 }
