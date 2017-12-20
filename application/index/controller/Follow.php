@@ -7,6 +7,7 @@
  */
 
 namespace app\index\controller;
+use app\index\model\User;
 use QCloud_WeApp_SDK\Constants;
 use think\Db;
 use think\Exception;
@@ -26,6 +27,16 @@ class Follow extends Base{
             $where = array("follow_id"=>$user_id);
         }
         $follow = $model->getByWhere($where);
+        $follow = objToArray($follow);
+        $userModel = new User();
+        $result = [];
+        foreach($follow["list"] as &$item){
+            $id = $type == "0" ? $item["user_id"] : $item["follow_id"];
+            $user = $userModel->getUserSampleInfo($id);
+            $item = array_merge($user, $item);
+            $result[] = $item;
+        }
+        $follow["list"] = $result;
         return msg($follow);
     }
 

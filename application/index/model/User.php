@@ -48,7 +48,11 @@ class User extends BaseModel{
 
     function getUserSampleInfo($user_id){
         $data = $this->where("id", $user_id)->find();
-        return objToArray($data);
+        $data = objToArray($data);
+        unset($data["openId"]);
+        unset($data["phone"]);
+        unset($data["wechat"]);
+        return $data;
     }
     
 }
