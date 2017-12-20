@@ -118,7 +118,7 @@ class User extends Base
         }
         $param["auth_status"] = 1;
         $allow_field = ["img_url", "wechat", "phone", "avatarUrl", "price", "service_type",
-            "time_start","time_end", "voice_url", "voice_type","auth_status"];
+            "time_start","time_end", "voice_url", "voice_type","auth_status", "age"];
         $model->allowField($allow_field)->save($param, ["id"=>$user_id]);
         return msg("");
     }
