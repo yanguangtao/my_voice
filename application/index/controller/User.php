@@ -31,10 +31,11 @@ class User extends Base
      * @return \think\response\Json
      */
     public function getInfo(){
-        $user = model('User');
+        $userModel = new UserModel();
         $result = LoginService::check();
-        if($result){
-            $data = $user->where("openId", $result["userinfo"]["openId"])->find();
+        if($result['loginState'] === 1){
+            $user_id = $userModel->getUserId( $result["userinfo"]["openId"]);
+            $data = $userModel->where("id",$user_id)->find();
             if ($data){
                 $data = objToArray($data);
                 $this->getUserOtherInfo($data);
@@ -70,6 +71,7 @@ class User extends Base
      * @return \think\response\Json
      */
     public function getUsers(){
+        require_once __DIR__."/../template_msg.php";
         $param = Request::instance()->param();
         $page = isset($param["page"]) ? $param["page"] : 1;
         $limit = isset($param["limit"]) ? $param["limit"] : 10;

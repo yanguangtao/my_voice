@@ -26,3 +26,7 @@ function getFollowCountKey($user_id){
 function getFollowedCountKey($user_id){
     return "user.{$user_id}.followed";
 }
+
+function getAccessTokenKey(){
+    return "voice_app.access_token";
+}

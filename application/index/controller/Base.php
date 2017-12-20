@@ -4,15 +4,15 @@ namespace app\index\controller;
 
 use think\Controller;
 use QCloud_WeApp_SDK\Conf as waferConfig;
-
+require_once __DIR__."/../ConstansValue.php";
 class Base extends Controller
 {
     public function _initialize()
     {
 
         waferConfig::setup(array(
-            'appId'          => 'wx9d369a56d26bb055',
-            'appSecret'      => 'c30bb022a01d7b269db5719f22034767',
+            'appId'          => \ConstansValue::APPID,
+            'appSecret'      => \ConstansValue::APP_SECRET,
             'useQcloudLogin' => false,
             'serverHost'         => 'vox-api.kavil.com.cn',
             'AuthServerUrl' => 'https://vox-apj.kavil.com.cn/session/',

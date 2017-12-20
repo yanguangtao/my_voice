@@ -12,7 +12,8 @@ use think\Route;
 Route::get([
     'login$'=> 'Login/index',
     'user$' => 'User/getUsers',
-    'user/:id' => ['User/getUser',[],['order_sn'=>'\d+']],
+    'user/info$' => 'User/getInfo',
+    'user/:id$' => ['User/getUser',[],['order_sn'=>'\d+']],
     'user/voice_type$' => 'User/getVoiceType',
     'order$' => 'Order/get',
     'order/:order_sn' => ['Order/getOrder',[],['order_sn'=>'\d+']],
