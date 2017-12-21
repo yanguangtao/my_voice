@@ -44,7 +44,7 @@ class User extends Base
                 return msg(new \ArrayObject(), 1, "用户不存在");
             }
         }else{
-            return msg($result['error']);
+            return msg("", 2, "登录过期");
         }
 
     }
