@@ -32,7 +32,7 @@ class User extends Base
      */
     public function getInfo(){
         $userModel = new UserModel();
-        $user_id = User::getUserId();
+        $user_id = UserModel::getUserId();
         if(!$user_id) {
             return msg("", 2, "登录过期");
         }
@@ -101,7 +101,7 @@ class User extends Base
     public function put(){
         $param = Request::instance()->param();
         $user = new UserModel();
-        $param["user_id"] = User::getUserId();
+        $param["user_id"] = UserModel::getUserId();
         if(!$param["user_id"]){
             return msg("", 2, "登录过期");
         }
@@ -114,7 +114,7 @@ class User extends Base
             return msg("", 1, "参数错误");
         }
         $model = new UserModel();
-        $user_id =User::getUserId();
+        $user_id =UserModel::getUserId();
         if(!$user_id){
             return msg("", 2, "登录过期");
         }

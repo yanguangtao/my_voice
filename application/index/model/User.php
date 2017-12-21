@@ -10,7 +10,7 @@ use app\index\RedisTool;
 use QCloud_WeApp_SDK\Auth\LoginService;
 use think\Model;
 use think\Log as log;
-
+require_once __DIR__."/../RedisKeys.php";
 
 class User extends BaseModel{
     protected $pk = 'id';
