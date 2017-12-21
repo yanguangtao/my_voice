@@ -18,7 +18,10 @@ use think\session\driver\Redis;
 
 class Follow extends Base{
     public function get(){
-        $user_id = 2;
+        $user_id = User::getUserId();
+        if(!$user_id){
+            return msg("", 2, "登录过期");
+        }
         $param = Request::instance()->param();
         $type = isset($param["type"]) ? $param["type"] : "1";
         $model = new FollowModel();
@@ -41,7 +44,10 @@ class Follow extends Base{
     }
 
     public function action(){
-        $user_id = 2;
+        $user_id = User::getUserId();
+        if(!$user_id){
+            return msg("", 2, "登录过期");
+        }
         $param = Request::instance()->param();
         log::error($param);
         if(!isset($param["follow_id"])){

@@ -32,20 +32,19 @@ class User extends Base
      */
     public function getInfo(){
         $userModel = new UserModel();
-        $result = LoginService::check();
-        if($result['loginState'] === 1){
-            $user_id = $userModel->getUserId( $result["userinfo"]["openId"]);
-            $data = $userModel->where("id",$user_id)->find();
-            if ($data){
-                $data = objToArray($data);
-                $this->getUserOtherInfo($data);
-                return msg($data);
-            }else{
-                return msg(new \ArrayObject(), 1, "用户不存在");
-            }
-        }else{
+        $user_id = User::getUserId();
+        if(!$user_id) {
             return msg("", 2, "登录过期");
         }
+        $data = $userModel->where("id",$user_id)->find();
+        if ($data){
+            $data = objToArray($data);
+            $this->getUserOtherInfo($data);
+            return msg($data);
+        }else{
+            return msg(new \ArrayObject(), 1, "用户不存在");
+        }
+
 
     }
 
@@ -102,18 +101,23 @@ class User extends Base
     public function put(){
         $param = Request::instance()->param();
         $user = new UserModel();
-        $param["user_id"] = $user->getUserId();
-        log::error($param);
+        $param["user_id"] = User::getUserId();
+        if(!$param["user_id"]){
+            return msg("", 2, "登录过期");
+        }
         $result = $user->updateOrInsert($param);
         return $result ? msg("") : msg("", 1, "更新失败");
     }
     public function auth(){
-        $user_id = 3;
         $param =Request::instance()->param();
         if (!isset($param["voice_url"]) or !isset($param["voice_type"])){
             return msg("", 1, "参数错误");
         }
         $model = new UserModel();
+        $user_id =User::getUserId();
+        if(!$user_id){
+            return msg("", 2, "登录过期");
+        }
         $user = $model->where("id", $user_id)->find();
         if($user->auth_status == 1){
             return msg("", 1, "正在认证中");

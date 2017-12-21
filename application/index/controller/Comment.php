@@ -9,6 +9,7 @@ namespace app\index\controller;
 use app\index\model\Order as OrderModel;
 use app\index\model\User as UserModel;
 use app\index\model\Comment as CommentModel;
+use app\index\model\User;
 use QCloud_WeApp_SDK\Constants;
 use think\Db;
 use think\Exception;
@@ -20,8 +21,10 @@ use think\session\driver\Redis;
 class Comment extends Base{
     public function post($order_id){
         $param = Request::instance()->param();
-        $user = new UserModel;
-        $user_id = $user->getUserId();
+        $user_id = User::getUserId();
+        if(!$user_id){
+            return msg("", 2, "登录过期");
+        }
         $order = new OrderModel();
         $order = $order->getOne($order_id);
         if(!$order or $order->consignee_id != intval($user_id)){

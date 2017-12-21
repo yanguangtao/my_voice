@@ -7,6 +7,7 @@
  */
 namespace app\index\model;
 use app\index\RedisTool;
+use QCloud_WeApp_SDK\Auth\LoginService;
 use think\Model;
 use think\Log as log;
 
@@ -30,15 +31,22 @@ class User extends BaseModel{
         }
     }
 
-    function getUserId($openId=''){
-        return 2;
+    public static function getUserId($openId=''){
+        if(!$openId){
+            $result = LoginService::check();
+            if($result['loginState'] === 1) {
+                $openId = $result["userinfo"]["openId"];
+            }else{
+                return false;
+            }
+        }
         $redis = new RedisTool();
         $key = getUserIdKeyByOpenId($openId);
         $user_id = $redis->get($key, 0);
         if($user_id){
             return $user_id;
         }
-        $user = $this->where("openId", $openId)->find();
+        $user = self::where("openId", $openId)->find();
         if($user){
             $user_id = $user->id;
             $redis->set($key, $user_id);

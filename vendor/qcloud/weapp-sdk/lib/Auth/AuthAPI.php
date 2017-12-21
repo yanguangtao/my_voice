@@ -60,8 +60,10 @@ class AuthAPI {
 
         $wxLoginExpires = Conf::getWxLoginExpires();
         $timeDifference = time() - strtotime($userinfo->last_visit_time);
-        
-        if ($timeDifference > $wxLoginExpires) {
+
+        //设置成session不过期，由小程序控制session
+//        if ($timeDifference > $wxLoginExpires) {
+        if (false) {
             return [
                 'loginState' => Constants::E_AUTH,
                 'userinfo' => []

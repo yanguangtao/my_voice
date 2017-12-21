@@ -28,16 +28,16 @@ class Order extends Base{
     }
 
     public function post(){
-        //        $check = LoginService::check();
-//        if($check !== Constants::E_AUTH){
-//            return msg('', 1, $check["error"]);
-//        }
         $data = Request::instance()->param();
         $model = new OrderModel();
+        $user_id = User::getUserId();
+        if(!$user_id){
+            return msg("", 2, "登录过期");
+        }
         try{
             self::checkData($data);
             Db::startTrans();
-            $data["consignee_id"] = 2;
+            $data["consignee_id"] = $user_id;
             $data['order_sn'] = getOrderSN();
             $data['create_time'] = date('Y-m-d H:i:s');
             $this->generateData($data);
@@ -56,13 +56,12 @@ class Order extends Base{
         return msg('', 1, "下单失败");
     }
     public function get(){
-//        $check = LoginService::check();
-//        if($check !== Constants::E_AUTH){
-//            return msg('', 1, $check["error"]);
-//        }
         $param = Request::instance()->param();
         $userModel = new User();
-        $user_id = $userModel->getUserId();
+        $user_id = User::getUserId();
+        if(!$user_id){
+            return msg("", 2, "登录过期");
+        }
         $page = isset($param["page"]) ? $param["page"] : 1;
         $limit = isset($param["limit"]) ? $param["limit"] : 10;
         $model = new OrderModel($param);
@@ -77,7 +76,10 @@ class Order extends Base{
     }
     public function getOrder($order_sn){
         $userModel = new User();
-        $user_id = $userModel->getUserId();
+        $user_id = User::getUserId();
+        if(!$user_id){
+            return msg("", 2, "登录过期");
+        }
         $model = new OrderModel();
         $result = $model->where('order_sn', $order_sn)->find();
         if(empty($result)){
@@ -106,7 +108,10 @@ class Order extends Base{
         if(!isset($param["action"])){
             return msg("", 1, "参数不正确");
         }
-        $user_id = 2;
+        $user_id =User::getUserId();
+        if(!$user_id){
+            return msg("", 2, "登录过期");
+        }
         $model = new OrderModel();
         $order = $model->where("order_sn", $order_sn)->where("service_id|consignee_id", "=", $user_id)->find();
         if(!$order){
