@@ -96,6 +96,13 @@ class User extends Base
         $order = $order->getUserStar($item["id"]);
         $item["star"] = $order["star"];
         $item["order_num"] = $order["order_num"];
+        if (!$item['time_start']){
+            $item['time_start'] = '00';
+        }
+        if (!$item['time_end']){
+            $item['time_end'] = '00';
+        }
+        $item['service_time'] = "{$item['time_start']}:00~{$item['time_end']}:00";
     }
 
     public function put(){
@@ -104,6 +111,11 @@ class User extends Base
         $param["user_id"] = UserModel::getUserId();
         if(!$param["user_id"]){
             return msg("", 2, "登录过期");
+        }
+        if (isset($param['service_time']) && is_array($param['service_time'])){
+            $time = explode('~', $param['service_time'][0]);
+            $param['time_start'] = explode(':', $time[0])[0];
+            $param['time_end'] = explode(':', $time[1])[0];
         }
         $result = $user->updateOrInsert($param);
         return $result ? msg("") : msg("", 1, "更新失败");
