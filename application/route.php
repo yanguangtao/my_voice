@@ -17,7 +17,8 @@ Route::get([
     'user/voice_type$' => 'User/getVoiceType',
     'order$' => 'Order/get',
     'order/:order_sn' => ['Order/getOrder',[],['order_sn'=>'\d+']],
-    'follow$' => 'Follow/get'
+    'follow$' => 'Follow/get',
+    'chat' => 'Chat/get'
 ]);
 Route::post([
     'user/auth$' => 'User/auth',

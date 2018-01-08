@@ -134,6 +134,11 @@ class User extends Base
         if($user->auth_status == 1){
             return msg("", 1, "正在认证中");
         }
+        if (isset($param['service_time']) && is_array($param['service_time'])){
+            $time = explode('~', $param['service_time'][0]);
+            $param['time_start'] = explode(':', $time[0])[0];
+            $param['time_end'] = explode(':', $time[1])[0];
+        }
         $param["auth_status"] = 1;
         $allow_field = ["img_url", "wechat", "phone", "avatarUrl", "price", "service_type",
             "time_start","time_end", "voice_url", "voice_type","auth_status", "age"];

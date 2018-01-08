@@ -8,6 +8,8 @@
 namespace app\index\model;
 
 use think\Model;
+require_once "../../../thinkphp/library/think/Model.php";
+
 class BaseModel extends Model{
 
     /**
