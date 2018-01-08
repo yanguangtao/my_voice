@@ -20,7 +20,7 @@
 //declare(ticks=1);
 
 use \GatewayWorker\Lib\Gateway;
-require_once "../model/chat.php";
+require_once __DIR__."/../model/Chat.php";
 
 /**
  * 主逻辑
