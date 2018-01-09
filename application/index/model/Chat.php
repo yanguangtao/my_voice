@@ -1,6 +1,5 @@
 <?php
 namespace app\index\model;
-require_once "BaseModel.php";
 class Chat extends BaseModel{
     protected $pk = 'id';
 

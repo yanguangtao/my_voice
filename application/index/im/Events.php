@@ -21,6 +21,7 @@
 
 use \GatewayWorker\Lib\Gateway;
 require_once __DIR__."/../model/Chat.php";
+require_once __DIR__."/../../../thinkphp/base.php";
 
 /**
  * 主逻辑
@@ -51,11 +52,11 @@ class Events
        try{
            $message = json_decode($message, true);
            $from_id = $message["data"]["from_id"];
-           $type = $message["type"];
+           $url = $message["url"];
        }catch (Exception $e){
             return "";
        }
-       switch ($type){
+       switch ($url){
            case "login":
                Gateway::bindUid($client_id, $from_id);
                $_SESSION["user_id"] = $from_id;
@@ -91,17 +92,17 @@ class Events
    }
 
     public static function error($client){
-        $message= ["type"=> "error", "data"=>["msg"=> "not login"]];
+        $message= ["url"=> "error", "data"=>["msg"=> "not login"], "code"=>1];
         Gateway::sendToClient($client, json_encode($message));
         Gateway::closeClient($client);
     }
     public static function chat($to_id, $msg){
-        Gateway::sendToAll(json_encode($msg));
-        Gateway::sendToUid($to_id, json_encode($msg));
-        $chatModel = new \app\index\model\Chat();
-        $data = $msg['data'];
-        $chatModel->save($data);
-        \think\Log::error($chatModel);
+//        Gateway::sendToAll(json_encode($msg));
+//        Gateway::sendToUid($to_id, json_encode($msg));
+//        $chatModel = new \app\index\model\Chat();
+//        $data = $msg['data'];
+//        print $chatModel->save($data);
+//        \think\Log::error($chatModel);
         
     }
 }

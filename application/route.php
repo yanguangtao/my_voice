@@ -18,14 +18,16 @@ Route::get([
     'order$' => 'Order/get',
     'order/:order_sn' => ['Order/getOrder',[],['order_sn'=>'\d+']],
     'follow$' => 'Follow/get',
-    'chat' => 'Chat/get'
+
 ]);
 Route::post([
     'user/auth$' => 'User/auth',
     'order$' => 'Order/post',
     'order/test$' => 'Order/unifiedOrder',
     'order/:order_id/comment$' => 'Comment/post',
-    'follow$' => 'Follow/action'
+    'follow$' => 'Follow/action',
+    'chat/chat$' => 'Chat/chat',
+    'chat/bind$' => 'Chat/bind'
 ]);
 Route::put([
     'user$' => 'User/put',
