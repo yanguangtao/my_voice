@@ -20,8 +20,6 @@
 //declare(ticks=1);
 
 use \GatewayWorker\Lib\Gateway;
-require_once __DIR__."/../model/Chat.php";
-require_once __DIR__."/../../../thinkphp/base.php";
 
 /**
  * 主逻辑
