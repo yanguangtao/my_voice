@@ -18,6 +18,7 @@ Route::get([
     'order$' => 'Order/get',
     'order/:order_sn' => ['Order/getOrder',[],['order_sn'=>'\d+']],
     'follow$' => 'Follow/get',
+    'chat/history/:user_id$'=>'Chat/history'
 
 ]);
 Route::post([

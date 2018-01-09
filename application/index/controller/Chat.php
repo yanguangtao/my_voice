@@ -38,5 +38,16 @@ class Chat extends Base{
         \Gateway::sendToUid($to_id, json_encode($data));
         return msg();
     }
+    public function history($user_id){
+        $u_id = User::getUserId();
+        if(!$u_id){
+            return msg("", 2, "登录过期");
+        }
+        $chatModel = new ChatModel();
+        $where = "(from_id=$u_id and to_id=$user_id) or (from_id=$user_id and to_id=$u_id)";
+        $data = $chatModel->getByWhere($where);
+        return msg($data);
+
+    }
 
 }
