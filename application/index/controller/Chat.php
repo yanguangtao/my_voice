@@ -38,6 +38,7 @@ class Chat extends Base{
         \Gateway::sendToUid($to_id, json_encode($data));
         return msg();
     }
+
     public function history($user_id){
         $u_id = User::getUserId();
         if(!$u_id){

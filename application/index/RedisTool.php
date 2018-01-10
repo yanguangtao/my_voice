@@ -12,16 +12,7 @@ use \think\cache\driver\Redis;
 class RedisTool extends Redis{
 
     function __construct(){
-        $config = [
-            'host'       => 'localhost',
-            'port'       => 6379,
-            'password'   => '',
-            'select'     => 1,
-            'timeout'    => 10,
-            'expire'     => 0,
-            'persistent' => false,
-            'prefix'     => '',
-        ];
+        $config = require __DIR__."/../redis_config.php";
         parent::__construct($config);
     }
     

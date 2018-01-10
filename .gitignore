@@ -4,4 +4,3 @@
 application/vendor_win/
 win_start_*.php
 application/index/im/win_start.bat
-application/index/RedisToo.php
